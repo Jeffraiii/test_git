@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="css/home.css">
+<link href="https://fonts.googleapis.com/css?family=Roboto:900" rel="stylesheet">
+</head>
+<body onload="loadJson()">
+	<div id="top"></div>
+	<div id="search-container">
+		<h1>LibraMate</h1>
+		<form name="myform" method="GET" action="Results.jsp" >
+			<input type="text" name="search" placeholder="Search..." /> 
+			<div id="search-icon-container">
+			<img id="search-icon" src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-search-strong-128.png" />
+			</div>
+			<br />
+			
+				<input class="intitle" id="intitle" type="radio" name="radio" value="intitle" class="radio" checked="checked">
+						<label class="intitle" for="intitle">Title</label>
+						<input class="isbn" id="isbn" type="radio" name="radio" value="isbn" class="radio">
+						<label class="isbn" for="isbn">ISBN</label>
+						
+						<br />
+						
+						<input class="inauthor" id="inauthor" type="radio" name="radio" value="inauthor" class="radio">
+						<label class="inauthor" for="author">Author</label>
+						<input class="subject" id="subject" type="radio" name="radio" value="subject" class="radio">
+						<label class="subject" for="subject">Genre</label>
+			
+				
+				<input type="submit" style="display:none" />
+		</form> 
+		<button onclick="window.location.href='/Assignment_2_Solution/login.jsp'" style="background-color: black; height: 30px; width: 80px; color: white;">
+		Login</button><br/>
+		<button onclick="window.location.href='/Assignment_2_Solution/signup.jsp'" style="background-color: black; height: 30px; width: 80px; color: white;">Sign UP</button>
+	</div>
+	
+	<div id = "bottom"></div>
+	
+</body>
+
+<script>
+	function loadJson(){
+		var xhttp = new XMLHttpRequest();
+		  xhttp.onreadystatechange = function() {
+		    if (this.readyState == 4 && this.status == 200) {
+		      /* document.getElementById("bottom").innerHTML =
+		      this.responseText; */
+		      /* sessionStorage.setItem("users", this.responseText); */
+		    }
+		  };
+		  xhttp.open("GET", "LoadData", true);
+		  xhttp.send();
+	}
+</script>
+
+</html>
